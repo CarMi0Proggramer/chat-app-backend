@@ -6,11 +6,11 @@ import { File } from "./entities/File.entity";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "carlos",
-    password: "carlos2006",
-    database: "chat_db",
+    host: "autorack.proxy.rlwy.net",
+    port: 21806,
+    username: "postgres",
+    password: "MeGULcjydPGkBWrJPCyulkoLnbVqHqTK",
+    database: "railway",
     entities: [User, Message, ChatRoom, File],
     migrations: [],
     logging: true,
