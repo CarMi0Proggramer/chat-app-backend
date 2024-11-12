@@ -22,7 +22,7 @@ const io = new Server(server, {
         maxDisconnectionDuration: 1000 * 60,
     },
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://programmers-chat.onrender.com",
         credentials: true,
     },
 });
