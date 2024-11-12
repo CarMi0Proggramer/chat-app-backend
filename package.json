@@ -1,0 +1,42 @@
+{
+    "name": "Chat App API",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "build": "swc src --strip-leading-paths -d dist",
+        "start": "node dist/app.js",
+        "dev": "nodemon",
+        "clean": "rm -rf dist"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@swc/cli": "^0.4.1-nightly.20240914",
+        "@swc/core": "^1.7.26",
+        "@types/bcrypt": "^5.0.2",
+        "@types/cookie-parser": "^1.4.7",
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.0",
+        "@types/jsonwebtoken": "^9.0.7",
+        "@types/multer": "^1.4.12",
+        "@types/node": "^22.7.5",
+        "nodemon": "^3.1.7",
+        "typescript": "^5.6.2"
+    },
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.0",
+        "jsonwebtoken": "^9.0.2",
+        "multer": "^1.4.5-lts.1",
+        "pg": "^8.13.0",
+        "reflect-metadata": "^0.2.2",
+        "socket.io": "^4.8.0",
+        "typeorm": "^0.3.20",
+        "zod": "^3.23.8"
+    }
+}
