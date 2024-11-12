@@ -1,6 +1,6 @@
 import cors from "cors";
 
-const ACCEPTED_ORIGINS = ["http://localhost:5173"];
+const ACCEPTED_ORIGINS = ["http://localhost:5173", "https://programmers-chat.onrender.com"];
 
 export const corsMiddleware = cors({
     origin: (origin, callback) => {
