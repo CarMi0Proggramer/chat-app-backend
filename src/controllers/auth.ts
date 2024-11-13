@@ -5,13 +5,6 @@ import { UserModel } from "../models/user";
 import { UserMapper } from "../mappers/user";
 import { JWT } from "../utils/jwt";
 
-const cookieOptions: CookieOptions = {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    maxAge: 2000 * 60 * 60,
-    sameSite: "strict",
-};
-
 export class AuthController {
     static async login(req: Request, res: Response) {
         const result = validatePartialUser(req.body);
@@ -34,12 +27,13 @@ export class AuthController {
             }
 
             const mappedUser = UserMapper.map(user);
-            const token = JWT.sign(mappedUser);
+            const access_token = JWT.sign(mappedUser);
 
             UserModel.setConnected(user.id);
-            res.cookie("access_token", token, cookieOptions).json({
+            res.json({
                 name: mappedUser.name,
                 email: mappedUser.email,
+                access_token,
             });
         } catch {
             res.status(500).json({ message: "Internal server error" });
@@ -64,12 +58,13 @@ export class AuthController {
             const hashedPassword = await bcrypt.hash(password, 10);
             const user = await UserModel.create(name, email, hashedPassword);
             const mappedUser = UserMapper.map(user);
-            const token = JWT.sign(mappedUser);
+            const access_token = JWT.sign(mappedUser);
 
             UserModel.setConnected(user.id);
-            res.cookie("access_token", token, cookieOptions).json({
+            res.json({
                 name: mappedUser.name,
                 email: mappedUser.email,
+                access_token,
             });
         } catch {
             res.status(500).json({ message: "Internal server error" });

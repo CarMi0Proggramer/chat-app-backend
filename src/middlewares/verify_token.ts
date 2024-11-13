@@ -5,7 +5,7 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
     req.body.session = { user: null };
 
     try {
-        const data = JWT.verify(req.cookies.access_token);
+        const data = JWT.verify(req.header("X-TOKEN"));
         req.body.session.user = data;
     } catch {}
 
