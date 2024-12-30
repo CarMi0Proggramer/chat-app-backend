@@ -1,6 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
+import "dotenv/config";
 import { Server } from "socket.io";
 import { createServer } from "node:http";
 import { corsMiddleware } from "./middlewares/cors";
@@ -12,7 +12,6 @@ import SocketManager from "./managers/socket";
 import { messagesRouter } from "./routes/messages";
 import { filesRouter } from "./routes/files";
 
-dotenv.config();
 const port = process.env.PORT ?? 3000;
 
 const app = express();
